@@ -1,0 +1,82 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="Bootstrap4, Multipurpose, responsive, Business, template,Shipping, Cargo, logistic, html5, css, javascript, web24service" />
+<meta name="author" content="web24service">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Title -->
+<title>Kilo-shipping</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/png' %}" href="{% static 'assets/assets/images/fevicon.png' %}">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+<!-- Font awesome CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome.all.min.css' %}">
+
+<!-- Animate CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+
+<!-- OwlCarousel CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+
+<!-- Magnific popup CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/fancybox.min.css' %}">
+
+<!-- chat CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/chat.css' %}">
+
+<!-- Slicknav CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/slicknav.min.css' %}">
+
+<!-- Date picker CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap-datetimepicker.min.css' %}">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+<!-- jQuery -->
+<script src="{% static 'assets/js/jquery-3.4.1.min.js' %}"></script>
+</head>
+<body>
+
+  {% include 'partials/header-style.html' %}
+
+<!-- Main Wrapper Start -->
+<div class="main-wrapper"> 
+  
+  <!-- skiptocontent start ( This section for blind and Google SEO, Also for page speed )--> 
+  <a id="skiptocontent" href="#maincontent">skip navigation</a> 
+  <!-- skiptocontent End --> 
+  
+  <!-- Preloader start -->
+  <div class="wshipping-site-preloader-wrapper">
+    <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>
+  </div>
+  <!-- Preloader End -->
+  
+    {% include 'partials/nav-bar.html' %}
+  <div id="page-content">
+    {% include template_name %}
+  </div>
+    {% include 'partials/footer.html' %}
+</div>
+<!-- Main Wrapper end -->
+{% include 'partials/footer-script.html' %}
+</body>
+</html>

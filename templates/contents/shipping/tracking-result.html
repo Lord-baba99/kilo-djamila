@@ -1,0 +1,150 @@
+{% load static %}
+{% load i18n %}
+
+  <!-- Breadcroumbs start -->
+  <div class="wshipping-content-block wshipping-breadcroumb inner-bg-1">
+    <div class="container">
+      <div class="row">
+         <div class="col-12 col-lg-7">
+            <h1>Your shipment progress</h1>
+            <a href="index.html" title="Home">Home</a> / Your shipment progress
+         </div>
+         <div class="col-12 col-lg-5 text-right"><h4>We freight to all over the world
+          The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcroumbs end -->
+
+  <!-- Your shipment progress start -->
+  <div class="wshipping-content-block">
+    <div class="container">
+      <div class="row">
+         <div class="col-12 col-lg-9">
+            <div class="track-result">
+               <h3>Shipment Track Result</h3>
+               <div class="track-result-block">
+                 <div class="track-result-id"><b>Order Tracking:</b> {{track.qr_colis}}</div>
+                 <div class="track-status">
+                   <div class="row">
+                     <div class="col-12 col-lg-4"><b>Shipping Via:</b> Ipsum Dolor</div>
+                     <div class="col-12 col-lg-4"><b>Status:</b> Processing Order</div>
+                     <div class="col-12 col-lg-4"><b>Expected Date:</b> 12-DEC-2017</div>
+                   </div>
+                 </div>
+                 <div class="track-result-bar">
+                  <ul class="track-progress">
+                     
+                    <li class="icon-confirm-roder {% if track.statut %}track-active{% endif %}">Confirmed Order</li>
+                    <li class="icon-process-roder {% if track.qr_colis %}track-active{% endif %}">Processing Order</li>
+                    <li class="icon-dispatched-item {% if track.statut_route %}track-active{% endif %}">Dispatched Item</li>
+                    <li class="icon-quality-check {% if track.statut_destination %}track-active{% endif %}">Quality Check</li>
+                    <li class="icon-product-deliver {% if track.statut_client %}track-active{% endif %}">Product Delivered</li>
+                  </ul>
+                 </div>
+              </div>   
+            </div>
+         </div>
+         <!-- Right sidebar start --> 
+         <div class="col-12 col-lg-3">
+            <div class="right-block left-menu menu-with-title mt60 mb15">
+               <h4 class="title-with-bg">Select Your Freight</h4>
+               <ul>
+                  <li class="active"><a href="" title="Air Freight Tracking">Air Freight Tracking</a></li>
+                  <li><a href="" title="Ocean Freight Tracking">Ocean Freight Tracking</a></li>
+                  <li><a href="" title="Road & Rail Freight Tracking">Road & Rail Freight Tracking</a></li>
+               </ul>
+            </div>
+               <a href="#" class="order-list-button">Your Order List</a>
+         </div>
+         <!-- Right sidebar end --> 
+      </div>
+    </div>
+  </div>
+  <!-- Blog content end --> 
+  
+  <!-- Send free quote start -->  
+  <div class="wshipping-content-block get-quote">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8"><h4>We Are Always In Here, <span>Need any Help?</span></h4></div>
+        <div class="col-12 col-lg-4 text-right"><a href="contact.html" title="" class="wshipping-button">Contact With Us</a></div>
+      </div>
+    </div>
+  </div>  
+  <!-- Send free quote end -->  
+  
+  <!-- Our Services Start -->
+  <div class="wshipping-content-block">
+    <div class="container">
+      <div class="row">
+         <div class="col-12 col-lg-6 offset-lg-3">
+            <div class="section-title wow fadeInUp">
+               <h2>Our Services</h2>
+               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-12 col-lg-4">
+            <div class="single-service-item wow fadeInUp">
+               <div class="service-item-bg service-bg-1"></div>
+               <div class="service-content">
+                  <h3>Ocean Freight Shipping</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                  <a href="" title="" class="readmore-btn">Read more <i class="fa fa-angle-right"></i></a>
+                  <div class="location_map"><i class="fa fa-plus"></i></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-12 col-lg-4">
+            <div class="single-service-item wow fadeInUp">
+               <div class="service-item-bg service-bg-2"></div>
+               <div class="service-content">
+                  <h3>Air Freight Shipping</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                  <a href="" title="" class="readmore-btn">Read more <i class="fa fa-angle-right"></i></a>
+                  <div class="location_map"><i class="fa fa-plus"></i></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-12 col-lg-4">
+            <div class="single-service-item wow fadeInUp">
+               <div class="service-item-bg service-bg-3"></div>
+               <div class="service-content">
+                  <h3>Car Shipping</h3>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                  <a href="" title="" class="readmore-btn">Read more <i class="fa fa-angle-right"></i></a>
+                  <div class="location_map"><i class="fa fa-plus"></i></div>
+               </div>
+            </div>
+         </div>
+       </div>
+    </div>
+  </div>
+  <!-- Your shipment progress end -->
+
+{% comment %}
+  <!-- Chat Start -->
+  <div class="live-chat">
+   <div class="chat">
+    <div class="chat_header">
+      <div class="chat_option">
+        <div class="header_img"> <img src="http://web24service.com/work/file/razu.png" alt="Web24service"/> </div>
+        <span id="chat_head">Razu Ahmed</span> <br>
+        <span class="agent">Agent</span> <span class="online">(Online)</span> <span id="chat_fullscreen_loader" class="chat_fullscreen_loader"><i class="fullscreen far fa-window-maximize"></i></span> </div>
+    </div>
+    <div class="chat_body chat_login"> <a id="chat_first_screen" class="chat-start"><i class="fas fa-arrow-right"></i></a>
+      <p>We make it simple and seamless for businesses and people to talk to each other. Ask us anything</p>
+    </div>
+    <div id="chat_converse" class="chat_conversion chat_converse"> <span class="chat_msg_item chat_msg_item_admin">
+      <span class="chat_avatar"> <img src="http://web24service.com/work/file/razu.png" alt="Web24service"/> </span>
+      Hey there! Any question?</span> <span class="chat_msg_item chat_msg_item_user"> Hello!</span> <span class="status">Just now. Not seen yet</span> </div>
+    <div class="fab_field"> <a id="fab_camera" class="chat-icon"><i class="zmdi fas fa-camera"></i></a> <a id="fab_send" class="chat-icon"><i class="zmdi fas fa-paper-plane"></i></a>
+      <textarea id="chatSend" name="chat_message" placeholder="Send a message" class="chat_field chat_message"></textarea>
+    </div>
+   </div>
+   <a id="prime" class="chat-icon"><i class="prime far fa-comments"></i></a>
+  </div>
+  <!-- Chat End -->
+{% endcomment %}

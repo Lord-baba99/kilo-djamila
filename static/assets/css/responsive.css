@@ -25,7 +25,7 @@ header.sticky .mainmenu > ul > li > a {
 	color: #222;
 }
 header.sticky .mainmenu > ul > li.nav-active > a, .transparant-header .mainmenu > ul > li:hover > a {
-	color: #eb0028;
+	color: #845adf;
 }
 }
 
@@ -386,7 +386,7 @@ label.empty {
 .media-text::before {
 	border-left: 16px solid transparent;
 	border-right: 16px solid transparent;
-	border-top: 16px solid #ec0927;
+	border-top: 16px solid #845adf;
 	border-bottom: 0px;
 	top: inherit;
 	bottom: -16px;
@@ -510,7 +510,7 @@ label.empty {
 	margin-left: -5px;
 	top: 100%;
 	border-right: 10px solid transparent;
-	border-top: 10px solid #ec0927;
+	border-top: 10px solid #845adf;
 	border-left: 10px solid transparent;
 }
 .list-sec .col-xs-6 {

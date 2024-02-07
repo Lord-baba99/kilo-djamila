@@ -43,7 +43,59 @@
     </div>
   </div>
   <!-- Slider End --> 
-  
+
+  <!-- article start -->
+  <div class="wshipping-content-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6 offset-lg-3">
+          <div class="section-title wow fadeInUp">
+            <h2>Ours Articles</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for article in articles %}
+        <!-- <img src="http://kilo.bb-business.ovh/{{article.image_uri}}" alt="" srcset=""> -->
+        <div class="col-12 col-lg-4">
+          <div class="single-service-item wow fadeInUp">
+            <div class="service-item-bg" style="background-image: url('http://kilo.bb-business.ovh/{{article.image_uri}}');"></div>
+            <div class="service-content">
+              <h4>{{article.name}}</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+              <a href="" title="" class="readmore-btn">Read more <i class="fa fa-angle-right"></i></a>
+              <div class="location_map"><i class="fa fa-plus"></i></div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="col-12 col-lg-4">
+          <div class="single-service-item wow fadeInUp">
+            <div class="service-item-bg service-bg-2"></div>
+            <div class="service-content">
+              <h4>Air Freight Shipping</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+              <a href="" title="" class="readmore-btn">Read more <i class="fa fa-angle-right"></i></a>
+              <div class="location_map"><i class="fa fa-plus"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="single-service-item wow fadeInUp">
+            <div class="service-item-bg service-bg-3"></div>
+            <div class="service-content">
+              <h4>Car Shipping</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+              <a href="" title="" class="readmore-btn">Read more <i class="fa fa-angle-right"></i></a>
+              <div class="location_map"><i class="fa fa-plus"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Service End --> 
   <!-- Service start -->
   <div class="wshipping-content-block">
     <div class="container">

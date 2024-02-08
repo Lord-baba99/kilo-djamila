@@ -95,3 +95,28 @@ def tracking_result(request):
         'template_name': 'contents/shipping/tracking-result.html',
     }
     return render(request, BASE_TEMPLATE, context)
+
+def shop(request):
+    url = 'http://kilo.bb-business.ovh/api/articles' 
+        
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    
+    response = requests.get(url, headers=headers)   
+    
+    articles = response.json()
+
+    context = {
+        'articles': articles,
+        'template_name': 'contents/shop/blog.html'
+    }
+    return render(request, BASE_TEMPLATE, context)
+
+def contact(request):
+    
+    context = {
+        'template_name': 'contents/contact.html'    
+    }
+    
+    return render(request, BASE_TEMPLATE, context)

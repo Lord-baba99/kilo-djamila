@@ -406,8 +406,9 @@ header:after {
 	float: left;
 }
 .logo img {
+	height: 65px;
 	float: left;
-	margin-top: 15px;
+	margin-top: 8px;
 }
 .logo a:hover {
 	opacity: 0.8;
@@ -1770,7 +1771,7 @@ span.counter-icon {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: #845adf8e;
+	background: #845adf47;
 	display: block;
 	content: "";
 	left: 0px;
@@ -2123,7 +2124,7 @@ button.btn-submit:hover {
 	left: 0px;
 	top: 0px;
 	height: 100%;
-	background-color: #ed1c24;
+	background-color: #845adf;
 	color: #fff;
 	padding: 0px 25px;
 }
@@ -2132,7 +2133,7 @@ button.btn-submit:hover {
 	height: 0;
 	border-top: 16px solid transparent;
 	border-bottom: 16px solid transparent;
-	border-left: 16px solid #ec0927;
+	border-left: 16px solid #845adf;
 	right: -16px;
 	top: 20%;
 	position: absolute;
@@ -2158,7 +2159,7 @@ button.btn-submit:hover {
 	border-top: 16px solid transparent;
 	border-bottom: 16px solid transparent;
 	border-left: 0px;
-	border-right: 16px solid #ec0927;
+	border-right: 16px solid #845adf;
 	left: -16px;
 }
 .media-text-right-gray {
@@ -2243,7 +2244,7 @@ button.btn-submit:hover {
 	font-size: 18px;
 }
 .download-btn:hover {
-	background-color: #ed1c24;
+	background-color: #845adf;
 }
 .right-quote-from {
 	border: 1px solid #d9d9d9;
@@ -2251,7 +2252,7 @@ button.btn-submit:hover {
 	padding: 10px 25px;
 }
 .right-quote-from h3 {
-	background-color: #ed1c24;
+	background-color: #845adf;
 	text-align: center;
 	border-radius: 3px;
 	text-transform: uppercase;
@@ -2397,7 +2398,7 @@ button.btn-submit:hover {
 	height: 0;
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
-	border-left: 10px solid #ec0927;
+	border-left: 10px solid #845adf;
 	right: -10px;
 	top: 20px;
 	position: absolute;
@@ -2862,7 +2863,7 @@ ul.bullet-list li:before {
 	top: 0px;
 	font-size: 26px;
 	content: "•";
-	color: #ed1c24;
+	color: #845adf;
 }
 /********************** 404 page Css **********************/
 

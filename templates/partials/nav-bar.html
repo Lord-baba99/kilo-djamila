@@ -1,6 +1,5 @@
 {% load static %}
 {% load i18n %}
-
 <header class="for-sticky"> 
     <!-- Header top area start -->
     <div class="header-top-area">
@@ -38,7 +37,7 @@
     <div class="header-area">
       <div class="container"> 
         <!-- Site logo Start -->
-        <div class="logo"> <a href="/" title="W-shipping"><img src="{% static 'assets/images/logo.png' %}" alt="W-shipping"/></a> </div>
+        <div class="logo"> <a href="/" title="W-shipping"><img src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt="W-shipping"/></a> </div>
         <!-- Site logo end -->
         <div class="mobile-menu-wrapper"></div>
         <!-- Search Start -->
@@ -88,14 +87,18 @@
                 <li><a href="customer-register.html">Customer Register</a></li>
                 {% endcomment %}
                 <li><a href="{% url 'tracking' %}">Tracking</a></li>
+                {% comment %}
                 <li><a href="{% url 'tracking-result' %}">Your shipment progress</a></li>
+                {% endcomment %}
               </ul>
             </li>
-            <li><a href="#">Blog</a>
+            <li><a href="#">Shop</a>
               <ul>
-                <li><a href="blog.html">Blog left sidebar</a></li>
+                <li><a href="{% url 'shop' %}">Product</a></li>
+                {% comment %}
                 <li><a href="blog-another-page.html">Blog right sidebar</a></li>
                 <li><a href="single-blog.html">Single Blog</a></li>
+                {% endcomment %}
               </ul>
             </li>
             {% comment %}
@@ -114,7 +117,7 @@
               </ul>
             </li>
             {% endcomment %}
-            <li><a href="contact.html">Contuct Us</a></li>
+            <li><a href="{% url 'contact' %}">Contuct Us</a></li>
           </ul>
         </nav>
         <!-- Main menu end --> 

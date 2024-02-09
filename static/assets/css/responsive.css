@@ -25,7 +25,7 @@ header.sticky .mainmenu > ul > li > a {
 	color: #222;
 }
 header.sticky .mainmenu > ul > li.nav-active > a, .transparant-header .mainmenu > ul > li:hover > a {
-	color: #845adf;
+	color: #5a94df;
 }
 }
 
@@ -210,7 +210,10 @@ header.sticky .mainmenu > ul > li.nav-active > a, .transparant-header .mainmenu 
 .small-pt40 {
 	padding-top: 40px;
 }
-.testimonial-img-bg {
+.testimonial-img-bg-1 {
+	border-radius: 4px 4px 0px 0px;
+}
+.testimonial-img-bg-2 {
 	border-radius: 4px 4px 0px 0px;
 }
 .space40 {

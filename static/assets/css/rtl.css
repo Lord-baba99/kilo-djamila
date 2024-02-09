@@ -213,7 +213,10 @@ span.counter-icon {
 .testimonial-content {
 	padding: 40px 0px 20px 20px;
 }
-.testimonial-img-bg {
+.testimonial-img-bg-1 {
+	border-radius: 0px 4px 4px 0px;
+}
+.testimonial-img-bg-2 {
 	border-radius: 0px 4px 4px 0px;
 }
 .testimonial-content::before {

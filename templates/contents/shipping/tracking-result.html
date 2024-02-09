@@ -15,12 +15,22 @@
     </div>
   </div>
   <!-- Breadcroumbs end -->
-
+{{track}}
   <!-- Your shipment progress start -->
   <div class="wshipping-content-block">
     <div class="container">
       <div class="row">
-         <div class="col-12 col-lg-9">
+         <div class="card col-12 col-lg-3 p-0" style="height: fit-content; margin-top: 60px !important;" >
+            <div class="card-header bg-primary" style="color: white;">
+               <span style="text-decoration: underline;">Nom du client :</span> <span style="font-weight: bolder;">{{track.client.name}}</span>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Phone : {{track.client.phone}}</li>
+              <li class="list-group-item">Email : {{track.client.email}}</li>
+              <li class="list-group-item">Adresse : {{track.client.adresse}}</li>
+            </ul>
+          </div>
+         <div class="col-12 col-lg-6">
             <div class="track-result">
                <h3>Shipment Track Result</h3>
                <div class="track-result-block">

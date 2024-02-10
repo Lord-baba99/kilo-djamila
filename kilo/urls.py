@@ -7,7 +7,7 @@ from main import urls as main_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(main_urls))
+    path('main/', include(main_urls))
 ]
 
 if settings.DEBUG:

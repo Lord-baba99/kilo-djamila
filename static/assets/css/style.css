@@ -2987,7 +2987,7 @@ ul.bullet-list li:before {
 	height: 100%;
 	content: "";
 	display: block;
-	background-color: rgba(235,0,40,0.8);
+	background-color: #5a89df8e;
 }
 .customer-login:after {
 	position: absolute;

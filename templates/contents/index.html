@@ -69,6 +69,25 @@
             </div>
           </div>
         </div>
+        {% empty %}
+        <div class="relative">
+          <div>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="">
+                  <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <strong class="d-inline">{{message}}</strong> <span class="d-inline">You should check in on some of those fields below.</span>
+                </div>
+              </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+           </div>
+        </div>
         {% endfor %}
         
       </div>

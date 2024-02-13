@@ -22,7 +22,8 @@
       <div class="row flex-lg-row-reverse">
         <div class="col-12 col-lg-9">       
           <!-- blog iteam start -->
-          {% for article in articles %}
+          {{articles.get_elided_page_range}}
+          {% for article in articles.object_list %}
           <div class="blog-block">
             <div class="blog-image-bg" style="background-image: url('http://kilo.bb-business.ovh/{{article.image_uri}}');"></div>
             <div class="blog-content">
@@ -43,9 +44,29 @@
               <div class="blog-action-holder"><a href="" title=""><i class="fa fa-heart"></i></a><a href="" title=""><i class="fa fa-share-alt"></i></a><a href="" title=""><i class="far fa-comments"></i></a></div>
             </div>
           </div>
+          {% empty %}
+          <div class="relative">
+            <div>
+              {% if messages %}
+              {% for message in messages %}
+              {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <div class="">
+                    <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong class="d-inline">{{message}}</strong> <span class="d-inline">You should check in on some of those fields below.</span>
+                  </div>
+                </div>
+              {% endif %}
+              {% endfor %}
+              {% endif %}
+             </div>
+          </div>
           {% endfor %}
           <!-- blog iteam end --> 
           
+          {% comment %}
           <!-- blog iteam start -->
           <div class="blog-block">
             <div class="blog-image-bg blog-image-3"></div>
@@ -68,7 +89,8 @@
             </div>
           </div>
           <!-- blog iteam end --> 
-          
+          {% endcomment %}
+
           <!-- pagination start -->
           <div class="page-navigation">
             <nav aria-label="Page navigation example">

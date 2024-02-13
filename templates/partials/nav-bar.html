@@ -10,11 +10,23 @@
           </div>
           <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end">
             <div class="top-menu">
+              {% if user.is_authenticated %}
+              {{user.first_name}} <span class="text-primary py-2 px-2 ms-1 rounded" style="background-color: white; height: 100%;">{{user.email}}</span>
+              <span>
+                <a href="{% url 'logout' %}">
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                </a>
+              </span>
+              {% else %}
               <ul>
-                <li><a href="customer-login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-                <li><a href="customer-register.html"><i class="fa fa-unlock-alt"></i> Registration</a></li>
+                <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                {% comment %}
+                <li><a href="{% url 'signup' %}"><i class="fa fa-unlock-alt"></i> Registration</a></li>
+                {% endcomment %}
               </ul>
+              {% endif %}
             </div>
+            {% comment %}
             <div class="language">
               <ul>
                 <li><a href="#" title="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'assets/images/flag-1.png' %}" alt=""/> EN</a>
@@ -27,6 +39,7 @@
                 </li>
               </ul>
             </div>
+            {% endcomment %}
           </div>
         </div>
       </div>
@@ -37,9 +50,10 @@
     <div class="header-area">
       <div class="container"> 
         <!-- Site logo Start -->
-        <div class="logo"> <a href="/" title="Kingstine Export" style="display: flex; align-items: center;"><img src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt="W-shipping"/> <span class="font-weight-bold" style="font-size: larger; color:black">Kingstine Export</span></a> </div>
+        <div class="logo"> <a href="{% url 'main-home' %}" title="Kingstine Export" style="display: flex; align-items: center;"><img src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt="W-shipping"/> <span class="font-weight-bold" style="font-size: larger; color:black">Kingstine Export</span></a> </div>
         <!-- Site logo end -->
         <div class="mobile-menu-wrapper"></div>
+        {% comment %}
         <!-- Search Start -->
         <div class="dropdown header-search-bar">
           <form action="#">
@@ -48,11 +62,11 @@
           </form>
         </div>
         <!-- Search End --> 
-        
+        {% endcomment %}
         <!-- Main menu start -->
         <nav class="mainmenu">
           <ul id="navigation">
-            <li class="nav-active"><a href="/">Home</a>
+            <li class="nav-active"><a href="{% url 'main-home' %}">Home</a>
               <ul>
                 <li class="chaild-active"><a href="{% url 'main-home' %}">Home</a></li>
                 {% comment %}

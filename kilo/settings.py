@@ -132,3 +132,7 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# User config
+LOGIN_URL = '/account/login'
+AUTH_USER_MODEL = 'accmgr.User'
+AUTHENTICATION_BACKENDS = ['accmgr.auth_features.EmailBackend', 'django.contrib.auth.backends.ModelBackend']

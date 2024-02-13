@@ -1,0 +1,14 @@
+GET http://kilo.bb-business.ovh/api/articles
+Content-Type: application/json
+
+###
+
+POST http://kilo.bb-business.ovh/api/connexion
+Content-Type: application/json
+
+{
+    "email": "nsondecaleb@gmail.com", 
+    "password": 123456789
+}
+
+

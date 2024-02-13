@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404, render
-from accmgr.models import Teacher
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import Group, Permission
 from django.http import HttpResponse
@@ -7,10 +6,11 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.db import IntegrityError
 from django.contrib.auth import logout, login, authenticate, get_user_model, get_user
-from accmgr.models import Person
-from . forms import *
 from django.contrib import messages
 from django.utils.translation import gettext as _
+import requests
+from django.contrib.auth.hashers import make_password
+from accmgr.auth_features import EmailBackend
 
 
 
@@ -33,19 +33,49 @@ def login_user(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         # print(email, password)
-        user = authenticate(email=email, password=password)
+        #print(user)
         
-        # print(user)
-        if user:
-            login(request, user)
-            if url:
-                return redirect(f'{url}')
-            elif not url:
+        responce = requests.post("http://kilo.bb-business.ovh/api/connexion",data={"email": email, "password": password})
+        print(responce.status_code)
+        print(responce.json())
+        
+        api_user = responce.json()
+        if responce.status_code == 200:
+            user = authenticate(email=email, password=password)
+            print(responce.status_code)
+            
+            if user==None:
+                print('pass through here !')
+                user = User.objects.create(
+                    email=email, 
+                    password=make_password(password),
+                    username=f"User_{api_user['id']}",
+                    first_name=api_user['name'],
+                    api_id=api_user['id']
+                    )
+                user.save()
+                login(request, user, 'accmgr.auth_features.EmailBackend')
                 return redirect('main-home')
-        elif user==None:
-            return render(request, BASE_TEMPLATE, {'template_name': 'contents/authentication/sign-in.html', 'error_message': 'Nom d\'utilisateur ou mot de passe invalide !'})
+            
+            elif user:
+                login(request, user, 'accmgr.auth_features.EmailBackend')
+                if url:
+                    return redirect(f'{url}')
+                elif not url:
+                    return redirect('main-home')
 
-    return render(request, BASE_TEMPLATE, {'template_name': 'contents/authentication/sign-in.html'})
+        elif responce.status_code == 403:
+            messages.error(request, "Email ou mot de passe incorrect")
+            return render(request, BASE_TEMPLATE, {'template_name': 'contents/accounts/login.html', 'error_message': 'Nom d\'utilisateur ou mot de passe invalide !'})
+
+        
+        else:
+            print(responce.status_code)
+            print("bad request")
+            messages.error(request, "Le serveur n'a pas correctement repondu")
+            return render(request, BASE_TEMPLATE, {'template_name': 'contents/accounts/login.html', 'error_message': 'Nom d\'utilisateur ou mot de passe invalide !'})
+
+    return render(request, BASE_TEMPLATE, {'template_name': 'contents/accounts/login.html'})
 
 
 def signup(request):
@@ -55,20 +85,20 @@ def signup(request):
         mail_to_be_validate = request.POST.get('email')
         if username_to_be_validate and mail_to_be_validate:
             #print('validation')
-            persons_by_username = Person.objects.filter(username=username_to_be_validate)
-            persons_by_email = Person.objects.filter(email=mail_to_be_validate)
+            persons_by_username = User.objects.filter(username=username_to_be_validate)
+            persons_by_email = User.objects.filter(email=mail_to_be_validate)
             
             if persons_by_email.count() > 0:
                 messages.error(request, _(f"This email ({mail_to_be_validate}) is already used"))
             
             if persons_by_username.count() > 0:
-                # print("person's count > 0" )
+                # print("User's count > 0" )
                 # print('form invalid 1')
                 messages.error(request, _(f"This username ({username_to_be_validate}) is already used"))
             
             #print("test : ", persons_by_email.count() == 0 and persons_by_username.count() == 0)
             if persons_by_email.count() == 0 and persons_by_username.count() == 0:
-                #print("person's count == 0" )
+                #print("User's count == 0" )
                 
                 form = PersonForm(request.POST)
                 if form.is_valid():
@@ -120,41 +150,41 @@ def signup(request):
     return render(request, BASE_TEMPLATE, {'dateform': JoinedDate(), 'template_name': 'contents/authentication/sign-up.html'})
 
 
-def make_request(request):
-    if request.POST:
-        email_to_validate = request.POST.get('email')
-        tar = TeacherAccountRequest.objects.filter(email=email_to_validate)
+# def make_request(request):
+#     if request.POST:
+#         email_to_validate = request.POST.get('email')
+#         tar = TeacherAccountRequest.objects.filter(email=email_to_validate)
         
-        if tar.count() > 0:    
+#         if tar.count() > 0:    
             
-            messages.error(request, _("The email provided is already used!"))
+#             messages.error(request, _("The email provided is already used!"))
             
-            context = {
-                    "messages": messages.get_messages(request),
-                    "provided_email": email_to_validate,
-                    "template_name": "contents/authentication/failed-request.html",
-                }
+#             context = {
+#                     "messages": messages.get_messages(request),
+#                     "provided_email": email_to_validate,
+#                     "template_name": "contents/authentication/failed-request.html",
+#                 }
                 
-            return render(request, BASE_TEMPLATE, context)
+#             return render(request, BASE_TEMPLATE, context)
         
-        elif tar.count() == 0:
-            form = TeacherAccountRequestForm(request.POST)
+#         elif tar.count() == 0:
+#             form = TeacherAccountRequestForm(request.POST)
             
-            if form.is_valid():
-                form.save()
-                messages.success(request, _("Your request has been send successfully !"))
+#             if form.is_valid():
+#                 form.save()
+#                 messages.success(request, _("Your request has been send successfully !"))
                 
-                context = {
-                    "messages": messages.get_messages(request),
-                    "template_name": "contents/authentication/success-request.html",
-                }
+#                 context = {
+#                     "messages": messages.get_messages(request),
+#                     "template_name": "contents/authentication/success-request.html",
+#                 }
                 
-                return render(request, BASE_TEMPLATE, context)
+#                 return render(request, BASE_TEMPLATE, context)
     
-    context = {
-        "template_name": "contents/authentication/teacher-sign-up.html"
-    }
-    return render(request, BASE_TEMPLATE, context)
+#     context = {
+#         "template_name": "contents/authentication/teacher-sign-up.html"
+#     }
+#     return render(request, BASE_TEMPLATE, context)
 
 
 def signup_teacher(request):
@@ -190,7 +220,7 @@ def update_profile(request):
         id_card_number = request.POST.get('id_card_number')
 
         requested_user = get_user(request)
-        user = Person.objects.filter(id=requested_user.id)
+        user = User.objects.filter(id=requested_user.id)
         user.update(
             username=username,
             first_name=first_name,
@@ -211,14 +241,14 @@ def update_profile(request):
 
 
 
-@staff_member_required
-def add_to_premiumGroup(request):
-    if request.POST:
-        target_user_id = request.POST.get("target_user_id")
-        target_user = get_object_or_404(Teacher, id=target_user_id)
-        target_group = Group.objects.get(name="Premium")
-        target_user.groups.add(target_group)
-        return render(request, "success_101.html")
+# @staff_member_required
+# def add_to_premiumGroup(request):
+#     if request.POST:
+#         target_user_id = request.POST.get("target_user_id")
+#         target_user = get_object_or_404(Teacher, id=target_user_id)
+#         target_group = Group.objects.get(name="Premium")
+#         target_user.groups.add(target_group)
+#         return render(request, "success_101.html")
 
 
 def _create_group(name) -> None:

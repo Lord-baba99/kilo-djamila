@@ -43,10 +43,11 @@
                    </div>
                  </div>
                  <div class="track-result-bar">
-                  <ul class="track-progress">
+                  <ul class="track-progress d-flex">
                      
                     <li class="icon-confirm-roder {% if track.statut %}track-active{% endif %}">Confirmed Order</li>
                     <li class="icon-process-roder {% if track.qr_colis %}track-active{% endif %}">Processing Order</li>
+                    <li class="icon-process-roder ">Articles achetés</li>
                     <li class="icon-dispatched-item {% if track.statut_route %}track-active{% endif %}">Dispatched Item</li>
                     <li class="icon-quality-check {% if track.statut_destination %}track-active{% endif %}">Quality Check</li>
                     <li class="icon-product-deliver {% if track.statut_client %}track-active{% endif %}">Product Delivered</li>
@@ -78,7 +79,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-8"><h4>We Are Always In Here, <span>Need any Help?</span></h4></div>
-        <div class="col-12 col-lg-4 text-right"><a href="contact.html" title="" class="wshipping-button">Contact With Us</a></div>
+        <div class="col-12 col-lg-4 text-right"><a href="{% url 'contact' %}" title="" class="wshipping-button">Contact With Us</a></div>
       </div>
     </div>
   </div>  

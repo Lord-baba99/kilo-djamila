@@ -58,8 +58,8 @@ The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
                  <div class="put-track-number">
                  <form action="{% url 'tracking' %}" method="post">
                   {% csrf_token %}
-                  <input type="number" value="8" class="d-none" name="user_id">
-                   <input type="text" class="form-control track-id" name="trackid" placeholder="Track ID" />
+                  <input type="number" value="{{user.api_id}}" class="d-none" name="user_id">
+                   <input type="text" class="form-control track-id" name="trackid" placeholder="Track ID" required value="{{track_id}}" />
                    <button type="submit" class="btn btn-track">Track</button>
                  </form>
                 </div>

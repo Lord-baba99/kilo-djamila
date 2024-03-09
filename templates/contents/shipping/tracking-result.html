@@ -7,10 +7,10 @@
       <div class="row">
          <div class="col-12 col-lg-7">
             <h1>Your shipment progress</h1>
-            <a href="{% url 'main-home' %}" title="Home">Home</a> / Your shipment progress
+            <a href="{% url 'main-home' %}" title="Accueil">Accueil</a> / La progression de votre envoi
          </div>
-         <div class="col-12 col-lg-5 text-right"><h4>We freight to all over the world
-          The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
+         <div class="col-12 col-lg-5 text-right"><h4>Nous expédions partout au Congo depuis la Chine <br>
+            La meilleure entreprise de logistique, <span>RAPIDE</span> et <span>EN TOUTE SÉCURITÉ !</span></h4></div>
       </div>
     </div>
   </div>
@@ -30,34 +30,34 @@
               <li class="list-group-item">Adresse : {{track.client.adresse}}</li>
             </ul>
           </div>
-         <div class="col-12 col-lg-6">
+         <div class="col-12 col-lg-9">
             <div class="track-result">
-               <h3>Shipment Track Result</h3>
+               <h3>Résultat du suivi des expéditions</h3>
                <div class="track-result-block">
-                 <div class="track-result-id"><b>Order Tracking:</b> {{track.qr_colis}}</div>
+                 <div class="track-result-id"><b>Suivi des commandes :</b> {{track.qr_colis}}</div>
                  <div class="track-status">
                    <div class="row">
-                     <div class="col-12 col-lg-4"><b>Shipping Via:</b> Ipsum Dolor</div>
-                     <div class="col-12 col-lg-4"><b>Status:</b> Processing Order</div>
-                     <div class="col-12 col-lg-4"><b>Expected Date:</b> 12-DEC-2017</div>
+                     <div class="col-12 col-lg-4" style="color: black;"><b>Expédition via :</b> Avion</div>
+                     <div class="col-12 col-lg-4" style="color: black;"><b>Status:</b> Colis arrivé</div>
+                     <div class="col-12 col-lg-4" style="color: black;"><b>Date prévue :</b> 12-MAR-2024</div>
                    </div>
                  </div>
                  <div class="track-result-bar">
                   <ul class="track-progress d-flex">
                      
-                    <li class="icon-confirm-roder {% if track.statut %}track-active{% endif %}">Confirmed Order</li>
-                    <li class="icon-process-roder {% if track.qr_colis %}track-active{% endif %}">Processing Order</li>
-                    <li class="icon-process-roder ">Articles achetés</li>
-                    <li class="icon-dispatched-item {% if track.statut_route %}track-active{% endif %}">Dispatched Item</li>
-                    <li class="icon-quality-check {% if track.statut_destination %}track-active{% endif %}">Quality Check</li>
-                    <li class="icon-product-deliver {% if track.statut_client %}track-active{% endif %}">Product Delivered</li>
+                    <li class="icon-confirm-roder {% if track.statut %}track-active{% endif %}" style="font-weight: bold;">Commande confirmée</li>
+                    <li class="icon-process-roder {% if track.qr_colis %}track-active{% endif %}" style="font-weight: bold;">Article acheté</li>
+                    <li class="icon-process-roder {% if track.statut_route %}track-active{% endif %}" style="font-weight: bold;">Colis dans l'entrepot</li>
+                    <li class="icon-dispatched-item {% if track.statut_route %}track-active{% endif %}" style="font-weight: bold;">En route pour 4 jours</li>
+                    <li class="icon-quality-check {% if track.statut_destination %}track-active{% endif %}" style="font-weight: bold;">Colis arrivé</li>
+                    <li class="icon-product-deliver {% if track.statut_client %}track-active{% endif %}" style="font-weight: bold;">Colis livré</li>
                   </ul>
                  </div>
               </div>   
             </div>
          </div>
          <!-- Right sidebar start --> 
-         <div class="col-12 col-lg-3">
+         <div class="d-none">
             <div class="right-block left-menu menu-with-title mt60 mb15">
                <h4 class="title-with-bg">Select Your Freight</h4>
                <ul>
@@ -78,15 +78,15 @@
   <div class="wshipping-content-block get-quote">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-8"><h4>We Are Always In Here, <span>Need any Help?</span></h4></div>
-        <div class="col-12 col-lg-4 text-right"><a href="{% url 'contact' %}" title="" class="wshipping-button">Contact With Us</a></div>
+         <div class="col-12 col-lg-8"><h4>Nous sommes toujours là, <span>besoin d’aide ?</span></h4></div>
+        <div class="col-12 col-lg-4 text-right"><a href="{% url 'contact' %}" title="" class="wshipping-button">Contactez-nous</a></div>
       </div>
     </div>
   </div>  
   <!-- Send free quote end -->  
   
   <!-- Our Services Start -->
-  <div class="wshipping-content-block">
+  <!-- <div class="wshipping-content-block">
     <div class="container">
       <div class="row">
          <div class="col-12 col-lg-6 offset-lg-3">
@@ -132,7 +132,7 @@
          </div>
        </div>
     </div>
-  </div>
+  </div> -->
   <!-- Your shipment progress end -->
 
 {% comment %}

@@ -8,7 +8,7 @@ from accmgr import urls as acc_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', include(main_urls)),
+    path('', include(main_urls)),
     path('account/', include(acc_urls)),
 ]
 

@@ -7,10 +7,10 @@
       <div class="row">
          <div class="col-12 col-lg-7">
             <h1>Tracking</h1>
-            <a href="{% url 'main-home' %}" title="Home">Home</a> / Tracking
+            <a href="{% url 'main-home' %}" title="Accueil">Accueil</a> / Tracking
          </div>
-         <div class="col-12 col-lg-5 text-right"><h4>We freight to all over the world
-The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
+         <div class="col-12 col-lg-5 text-right"><h4>Nous expédions partout au Congo depuis la Chine <br>
+          La meilleure entreprise de logistique, <span>RAPIDE</span> et <span>EN TOUTE SÉCURITÉ !</span></h4></div>
       </div>
     </div>
   </div>
@@ -18,131 +18,136 @@ The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
   
   <!-- Tracking start -->
   <div class="wshipping-content-block">
-    <div class="container">
-      <div class="row">
-         <div class="col-12 col-lg-6 offset-lg-3">
-            <div class="section-title wow fadeInUp">
-               <h2>Track a shipment</h2>
-               <p>Track your LTL, truckload, or intermodal shipment by entering your <span>Track number</span> below to get instant freight tracking information.</p>
-            </div>
-            <div class="relative">
-              <div>
-                {% if messages %}
-                {% for message in messages %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <div class="">
-                      <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                      <strong class="d-inline">{{message}}</strong> <span class="d-inline">You should check in on some of those fields below.</span>
-                    </div>
-                  </div>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-12 col-lg-9">
-            <div class="tracking-block">
-               <ul class="nav nav-tabs" role="tablist">
-                 <li class="nav-item"><a class="nav-link active" href="#track-by-number" aria-controls="track-by-number" role="tab" data-toggle="tab">Track by Number</a></li>
-                 <!-- <li class="nav-item"><a class="nav-link" href="#track-by-reference" aria-controls="track-by-reference" role="tab" data-toggle="tab">Track by Reference</a></li> -->
-              </ul>
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="track-by-number">
-                 <h3>Air Freight Tracking</h3>
-                 <div class="put-track-number">
-                 <form action="{% url 'tracking' %}" method="post">
-                  {% csrf_token %}
-                  <input type="number" value="{{user.api_id}}" class="d-none" name="user_id">
-                   <input type="text" class="form-control track-id" name="trackid" placeholder="Track ID" required value="{{track_id}}" />
-                   <button type="submit" class="btn btn-track">Track</button>
-                 </form>
+    <div class="container row mx-auto">
+      <div class="row col-12 col-md-8">
+        <div class="row col-12">
+          <div class="col-12">
+             <div class="section-title wow fadeInUp">
+                <h2>Suivre un envoi</h2>
+                <p>Faites le suivi de votre colis en saisissant votre <span>numéro de suivi</span> ci-dessous pour obtenir de manière instantanée toutes les informations nécessaires.</p>
+             </div>
+             <div class="relative">
+               <div>
+                 {% if messages %}
+                 {% for message in messages %}
+                 {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                     <div class="">
+                       <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                       <strong class="d-inline">{{message}}</strong> <span class="d-inline"></span>
+                     </div>
+                   </div>
+                 {% endif %}
+                 {% endfor %}
+                 {% endif %}
                 </div>
-                <div class="track-bottom-link"><a href="">Need Help?</a> <span>|</span> <a href="">Your Order list</a></div>
-               </div>
-               <div role="tabpanel" class="tab-pane" id="track-by-reference">
-                <div class="put-reference-number">
-                 <form action="customer-register.html">
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-12 col-md-6 col-lg-4">
-                       <label>Shipment Reference (BOL or PO):</label>
-                       <input type="text" class="form-control" name="RefNumber" required />
-                      </div>
-                      <div class="col-12 col-md-6 col-lg-4">
-                       <label>Shipment Date Start:</label>
-                       <div class="input-group date" data-provide="datepicker">
-                         <input type="text" class="form-control" name="startDate" required />
-                         <div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div>
-                       </div>
-                      </div>
-                      <div class="col-12 col-md-6 col-lg-4">
-                       <label>Shipment Date End:</label>
-                       <div class="input-group date" data-provide="datepicker">
-                         <input type="text" class="form-control" name="EndDate" required />
-                         <div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div>
-                      </div>
-                      </div>
-                    </div>    
-                  </div>
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-12 col-md-6 col-lg-6">
-                       <label>Origin Country:</label>
-                       <select class="form-control" name="OriginCountry">
-                        <option>United State</option>
-                        <option>Canada</option>
-                        <option>Maxico</option>
-                        <option>Caina</option>
-                      </select>
-                      </div>
-                      <div class="col-12 col-md-6 col-lg-6">
-                       <label>Origin ZIP/Postal Code:</label>
-                       <input type="text" class="form-control" name="OriginZip" required />
-                      </div>
-                    </div>    
-                  </div>
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-12 col-md-6 col-lg-6">
-                       <label>Destination Country: </label>
-                       <select class="form-control" name="dcountry">
-                        <option>United State</option>
-                        <option>Canada</option>
-                        <option>Maxico</option>
-                        <option>Caina</option>
-                      </select>
-                      </div>
-                      <div class="col-12 col-md-6 col-lg-6">
-                       <label>Destination ZIP/Postal Code:</label>
-                       <input type="text" class="form-control" name="DZip" required />
-                      </div>
-                    </div>    
-                  </div>
-                  <button type="submit" class="btn btn-submit">Track</button>
-                </form> 
-                </div>
-               </div>
-             </div> 
-            </div>
-         </div>
-         <!-- Right sidebar start --> 
-         <div class="col-12 col-lg-3">
-            <div class="right-block left-menu menu-with-title mt40">
-               <h4 class="title-with-bg">Select Your Freight</h4>
-               <ul>
-                  <li class="active"><a href="" title="Air Freight Tracking">Air Freight Tracking</a></li>
-                  <li><a href="" title="Ocean Freight Tracking">Ocean Freight Tracking</a></li>
-                  <li><a href="" title="Road & Rail Freight Tracking">Road & Rail Freight Tracking</a></li>
+             </div>
+          </div>
+       </div>
+       <div class="row col-12">
+          <div class="col-12">
+             <div class="tracking-block">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" href="#track-by-number" aria-controls="track-by-number" role="tab" data-toggle="tab">Suivi par numéro</a></li>
+                  <!-- <li class="nav-item"><a class="nav-link" href="#track-by-reference" aria-controls="track-by-reference" role="tab" data-toggle="tab">Track by Reference</a></li> -->
                </ul>
-            </div>
-         </div>
-         <!-- Right sidebar end --> 
+               <div class="tab-content">
+                 <div role="tabpanel" class="tab-pane active" id="track-by-number">
+                  <h3>Suivi du fret</h3>
+                  <div class="put-track-number">
+                  <form action="{% url 'tracking' %}" method="post">
+                   {% csrf_token %}
+                   <input type="number" value="{{user.api_id}}" class="d-none" name="user_id">
+                    <input type="text" class="form-control track-id" name="trackid" placeholder="Track ID" required value="{{track_id}}" />
+                    <button type="submit" class="btn btn-track">Track</button>
+                  </form>
+                 </div>
+                 <!-- <div class="track-bottom-link"><a href="">Need Help?</a> <span>|</span> <a href="">Your Order list</a></div> -->
+                </div>
+                <div role="tabpanel" class="tab-pane" id="track-by-reference">
+                 <div class="put-reference-number">
+                  <form action="customer-register.html">
+                   <div class="form-group">
+                     <div class="row">
+                       <div class="col-12 col-md-6 col-lg-4">
+                        <label>Shipment Reference (BOL or PO):</label>
+                        <input type="text" class="form-control" name="RefNumber" required />
+                       </div>
+                       <div class="col-12 col-md-6 col-lg-4">
+                        <label>Shipment Date Start:</label>
+                        <div class="input-group date" data-provide="datepicker">
+                          <input type="text" class="form-control" name="startDate" required />
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div>
+                        </div>
+                       </div>
+                       <div class="col-12 col-md-6 col-lg-4">
+                        <label>Shipment Date End:</label>
+                        <div class="input-group date" data-provide="datepicker">
+                          <input type="text" class="form-control" name="EndDate" required />
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div>
+                       </div>
+                       </div>
+                     </div>    
+                   </div>
+                   <div class="form-group">
+                     <div class="row">
+                       <div class="col-12 col-md-6 col-lg-6">
+                        <label>Origin Country:</label>
+                        <select class="form-control" name="OriginCountry">
+                         <option>United State</option>
+                         <option>Canada</option>
+                         <option>Maxico</option>
+                         <option>Caina</option>
+                       </select>
+                       </div>
+                       <div class="col-12 col-md-6 col-lg-6">
+                        <label>Origin ZIP/Postal Code:</label>
+                        <input type="text" class="form-control" name="OriginZip" required />
+                       </div>
+                     </div>    
+                   </div>
+                   <div class="form-group">
+                     <div class="row">
+                       <div class="col-12 col-md-6 col-lg-6">
+                        <label>Destination Country: </label>
+                        <select class="form-control" name="dcountry">
+                         <option>United State</option>
+                         <option>Canada</option>
+                         <option>Maxico</option>
+                         <option>Caina</option>
+                       </select>
+                       </div>
+                       <div class="col-12 col-md-6 col-lg-6">
+                        <label>Destination ZIP/Postal Code:</label>
+                        <input type="text" class="form-control" name="DZip" required />
+                       </div>
+                     </div>    
+                   </div>
+                   <button type="submit" class="btn btn-submit">Track</button>
+                 </form> 
+                 </div>
+                </div>
+              </div> 
+             </div>
+          </div>
+          <!-- Right sidebar start --> 
+          <!-- <div class="col-12 col-lg-3">
+             <div class="right-block left-menu menu-with-title mt40">
+                <h4 class="title-with-bg">Select Your Freight</h4>
+                <ul>
+                   <li class="active"><a href="" title="Air Freight Tracking">Air Freight Tracking</a></li>
+                   <li><a href="" title="Ocean Freight Tracking">Ocean Freight Tracking</a></li>
+                   <li><a href="" title="Road & Rail Freight Tracking">Road & Rail Freight Tracking</a></li>
+                </ul>
+             </div>
+          </div> -->
+          <!-- Right sidebar end --> 
+       </div>
+      </div>
+      <div class=" col-12 col-md-4" style="height: inherit; width: 100%; background-size: cover; border-radius: .6rem ; background-position-x: center;background-image: url('{% static 'assets/images/kilo/tracking.jpg' %}');">
+
       </div>
     </div>
   </div>
@@ -152,15 +157,15 @@ The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
   <div class="wshipping-content-block get-quote">
     <div class="container">
       <div class="row">
-        <div class="col-md-8"><h4>We Are Always In Here, <span>Need any Help?</span></h4></div>
-        <div class="col-md-4 text-right"><a href="contact.html" title="" class="wshipping-button">Contact With Us</a></div>
+        <div class="col-md-8"><h4>Nous sommes toujours là, <span>besoin d’aide ?</span></h4></div>
+        <div class="col-md-4 text-right"><a href="{% url 'contact' %}" title="" class="wshipping-button">Contactez-nous</a></div>
       </div>
     </div>
   </div>  
   <!-- Send free quote end -->  
   
   <!-- Our Services Start -->
-  <div class="wshipping-content-block">
+  <!-- <div class="wshipping-content-block">
     <div class="container">
       <div class="row">
          <div class="col-12 col-lg-6 offset-lg-3">
@@ -206,7 +211,7 @@ The best logistic company, <span>FAST</span> and <span>SAFELY!</span></h4></div>
          </div>
        </div>
     </div>
-  </div>
+  </div> -->
   <!-- Our Services end -->
 
 

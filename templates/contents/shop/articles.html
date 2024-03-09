@@ -1,0 +1,93 @@
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+  <!-- Breadcroumbs start -->
+  <div class="wshipping-content-block wshipping-breadcroumb inner-bg-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          <h1>Boutique</h1>
+          <a href="{% url 'main-home' %}" title="Accueil">Accueil</a> / Boutique </div>
+        <div class="col-12 col-lg-5 text-right">
+          <h4>Nous expédions partout au Congo depuis la Chine
+            La meilleure entreprise de logistique, <span>RAPIDE</span> et <span>EN TOUTE SÉCURITÉ !</span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcroumbs end --> 
+  
+
+  <!-- Boutique content start -->
+  <div class="wshipping-content-block">
+    <div class="container">
+      <div class="row flex-lg-row-reverse">
+        <div class="col-12">       
+          <!-- blog iteam start -->
+          
+          <div class="card">
+            <div class="card-header categorie-header">
+              <div class="categorie-title">
+                <h1>{{categorie.name}}</h1>
+                <h5>{{categorie.description}}</h5>
+              </div>
+              <img class="categorie-image" src="{{BASE_URL}}/{{categorie.image_uri}}" alt="">
+            </div>
+            <div class="card-body categorie-body">
+              {% for article in categorie.articles %}
+              <div class="article card">
+                <img src="{{BASE_URL}}/{{article.image_uri}}" alt="" class="article-image">
+                <div class="card-body article-body">
+                  <h3><a href="#" title="">{{article.name}}</a></h3>
+                  <p>Prix : <strong>{{article.prix|intcomma}} {{article.devise.name}}</strong></p>
+                </div>
+              </div>
+              {% endfor %}
+              
+            </div>
+          </div>
+          
+        </div>
+        <!-- Boutique sidebar start -->
+        <div class="d-none col-12 col-lg-3">
+          <!-- <div class="cat-Search">
+            <form action="{% url 'main-home' %}">
+              <input type="search" placeholder="Enter kyewords.." class="form-control">
+            </form> 
+          </div>-->
+          <div class="left-block left-menu menu-with-title">
+            <h4 class="title-with-bg">Categories</h4>
+            <ul>
+              {% for categorie in categories %}
+              <li class="active"><a href="" title="{{categorie.description}}">{{categorie.name}}</a></li>
+              {% endfor %}
+              
+            </ul>
+          </div>
+          <!-- <div class="left-block letest-post">
+            <h4 class="title-with-bg bg-black">Latest post</h4>
+            <ul>
+              <li><a href="" title=""> <img src="{% static 'assets/images/latest-post1.jpg' %}" alt="post1">
+                <p>Lorem Ipsum is simply dummy text of the printing</p>
+                <span>9th September 2016</span> </a></li>
+              <li><a href="" title=""> <img src="{% static 'assets/images/latest-post1.jpg' %}" alt="post1">
+                <p>Lorem Ipsum is simply dummy text of the printing</p>
+                <span>9th September 2016</span> </a></li>
+              <li><a href="" title=""> <img src="{% static 'assets/images/latest-post1.jpg' %}" alt="post1">
+                <p>Lorem Ipsum is simply dummy text of the printing</p>
+                <span>9th September 2016</span> </a></li>
+              <li><a href="" title=""> <img src="{% static 'assets/images/latest-post1.jpg' %}" alt="post1">
+                <p>Lorem Ipsum is simply dummy text of the printing</p>
+                <span>9th September 2016</span> </a></li>
+            </ul>
+          </div> -->
+          <!-- <div class="left-block blog-tag">
+            <h3 class="heading3-border text-uppercase">Tags</h3>
+            <a href="#" title="Logistics">Logistics</a> <a href="#" title="How To Build">How To Build</a> <a href="#" title="Curgo Services">Curgo Services</a> <a href="#" title="Tips">Tips</a> <a href="#" title="Latest Offers">Latest Offers</a> <a href="#" title="Sea & Trucking">Sea &amp; Trucking</a> 
+          </div> -->
+        </div>
+        <!-- Boutique sidebar end --> 
+      </div>
+    </div>
+  </div>
+  <!-- Boutique content end --> 

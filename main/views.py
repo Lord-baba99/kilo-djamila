@@ -4,9 +4,11 @@ from django.urls import reverse
 from django.contrib import messages
 import requests
 from django.core.paginator import Paginator
+from django.http import Http404
 
 
 BASE_TEMPLATE = 'layouts/base.html'
+BASE_URL = 'http://kilo.bb-business.ovh'
 
 def make_pagination(request, model, number_per_page):
     paginator = Paginator(model, number_per_page)
@@ -23,7 +25,8 @@ def make_pagination(request, model, number_per_page):
 
 def home(request):
     try:
-        url = 'http://kilo.bb-business.ovh/api/articles' 
+        url = f'{BASE_URL}/api/articles' 
+        # url = '#' 
         data = {}
         
         headers = {
@@ -49,9 +52,15 @@ def service(request):
     }
     return render(request, BASE_TEMPLATE, context)
 
-def single_service(request):
+def air_freight_service(request):
     context = {
-        'template_name': 'contents/services/single-services.html',
+        'template_name': 'contents/services/air-freight-services.html',
+    }
+    return render(request, BASE_TEMPLATE, context)
+
+def ocean_freight_service(request):
+    context = {
+        'template_name': 'contents/services/ocean-freight-services.html',
     }
     return render(request, BASE_TEMPLATE, context)
 
@@ -66,11 +75,12 @@ def tracking(request):
     if request.POST:
         user_id = request.POST.get('user_id')
         colis_id = request.POST.get('trackid')
-        url = f'http://kilo.bb-business.ovh/api/client-tracking-check/{user_id}/{colis_id}'
+        url = f'{BASE_URL}/api/client-tracking-check/{colis_id}'
         
         headers = {
             'Content-Type': 'application/json'
         }
+        
         try:
             response = requests.get(url, headers=headers)   
             if response.status_code == 200:
@@ -108,20 +118,52 @@ def tracking_result(request):
     return render(request, BASE_TEMPLATE, context)
 
 def shop(request):
-    url = 'http://kilo.bb-business.ovh/api/articles'
+    url = 'http://kilo.bb-business.ovh/api/categories'
+    # url = 'https://apilbi.academielbi.com/api_v1/courses-content/'
     headers = {
         'Content-Type': 'application/json'
     }
     try:
-        response = requests.get(url, headers=headers)   
-        articles = response.json()
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            categories = response.json()
+            # print(articles)   
     except Exception as e:
+        # print(e)
         messages.error(request, "Impossible d'atteindre le serveur distant")
-        articles = []
-    articles = make_pagination(request, articles, 1)
+        categories = []
+    # articles = make_pagination(request, articles, 50)
     context = {
-        'articles': articles,
-        'template_name': 'contents/shop/blog.html'
+        'BASE_URL': BASE_URL,
+        'categories': categories,
+        'template_name': 'contents/shop/shop.html'
+    }
+    return render(request, BASE_TEMPLATE, context)
+
+def get_article(request, category_id):
+    if category_id:
+        url = f'http://kilo.bb-business.ovh/api/categorie-show/{category_id}'
+    else:
+        raise Http404
+    
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            # print(response.content)
+            category = response.json()
+            print(category)   
+    except Exception as e:
+        print(e)
+        messages.error(request, "Impossible d'atteindre le serveur distant")
+        category = []
+    # articles = make_pagination(request, articles, 50)
+    context = {
+        'BASE_URL': BASE_URL,
+        'categorie': category,
+        'template_name': 'contents/shop/articles.html'
     }
     return render(request, BASE_TEMPLATE, context)
 

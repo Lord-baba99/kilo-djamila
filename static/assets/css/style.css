@@ -52,21 +52,26 @@ Details of css section
 *************************************************/
 
 :root {
-	--main-color: #5a89df;
-	--main-color-transparent: #5a89dfe0;
-	--main-color-transparent-medium: #5a89df8e;
+	--main-color: #359ac1;
+	--main-color-transparent: #257999;
+	--main-color-transparent-medium: #37b4e574;
+	--main-color-transparent-light: #37b4e53c;
   }
 
 /*-------------- Google Font ------------------*/
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
 /*-------------- Defalts Css ------------------*/
 
 body {
-	font-family: 'Roboto', sans-serif;
+	/* font-family: "Poppins", sans-serif !important; */
 	font-size: 14px;
 	line-height: 24px;
 	color: #444444;
+	font-weight: 400;
+  	font-style: normal;
 }
 
 body.box-style .main-wrapper {
@@ -657,7 +662,7 @@ header:after {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgb(65 64 64 / 58%);
 	content: "";
 	width: 100%;
 	height: 100%;
@@ -786,7 +791,7 @@ header:after {
 	background-color: #a7a7a7;
 	background-position: center;
 	background-size: cover;
-	height: 200px;
+	height: 350px;
 }
 .service-content {
 	padding: 20px;
@@ -874,7 +879,7 @@ header:after {
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background: var(--main-color-transparent-medium);
+	background: var(--main-color-transparent-light);
 }
 .provided-block h1 {
 	color: #fff;
@@ -948,8 +953,9 @@ header:after {
 /*-------------- Services process Css ------------------*/
 
 .service-process {
-	background-color: #f6f5f5;
+	background-color: var(--main-color-transparent);
 	position: relative;
+	color: white;
 }
 .service-process:after {
 	content: "";
@@ -4247,4 +4253,95 @@ img.float-right {
 	left: 0px;
 	top: 0px;
 	z-index: 2;
+}
+
+.categorie-header {
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}
+
+.categorie-image {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 200px;
+	z-index: 0;
+}
+
+.categorie-title {
+	position: relative;
+	z-index: 10;
+	padding: 10px;
+	border-radius: .5rem;
+	backdrop-filter: blur(5px);
+	width: fit-content;
+	background-color: #25789998;
+	color: white;
+	
+}
+.categorie-body {
+	padding: 10%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.article {
+	width: 300px;
+	margin: auto;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.article-image {
+	width: 100%;
+	max-height: 200px;
+	margin: 0 auto;
+	display: block;
+}
+
+.article-body {
+	height: 35%;
+	padding: 10px;
+}
+
+
+.shop-slide {
+	position: relative;
+	height: 350px;
+    overflow: hidden;
+    width: 100%;
+	display: flex;
+	align-items: center;
+	background-position-x: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* .shop-slide img {
+	min-width: 500px;
+    width: 100%;
+    min-height: 350px;
+} */
+
+.slide-text {
+	display: block;
+	margin: 0 50px;
+	padding: 20px 40px;
+	border-radius: .6rem;
+	color: white;
+	font-size: x-large;
+	max-width: 500px;
+	background-color: #026387a2;
+	backdrop-filter: blur(5px);
+	border: 2px solid #026387;
+	line-height: 25px;
+	font-weight: 600;
+}
+
+.title-bold-2xl h2{
+	font-weight: bold;
 }

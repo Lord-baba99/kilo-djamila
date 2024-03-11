@@ -3244,13 +3244,13 @@ ul.track-progress li:first-child:after {
 	content: normal;
 }
 ul.track-progress li.track-active {
-	color: #70a62a;
+	color: #083647;
 }
 ul.track-progress li.track-active:before {
-	background-color: #7eb438;
+	background-color: #083647;
 }
 ul.track-progress li.track-active + li:after {
-	background-color: #7eb438;
+	background-color: #083647;
 }
 ul.track-progress li.icon-confirm-roder:before {
 	content: "\f217";
@@ -4346,7 +4346,7 @@ img.float-right {
 	background-size: cover;
 	border-radius: .6rem;
 	overflow: hidden;
-	width: 200px; 
+	width: 100%; 
 	height: 200px;
 }
 

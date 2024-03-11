@@ -129,7 +129,7 @@ def shop(request):
             categories = response.json()
             # print(articles)   
     except Exception as e:
-        # print(e)
+        print(e)
         messages.error(request, "Impossible d'atteindre le serveur distant")
         categories = []
     # articles = make_pagination(request, articles, 50)

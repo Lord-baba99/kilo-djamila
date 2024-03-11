@@ -4342,6 +4342,50 @@ img.float-right {
 	font-weight: 600;
 }
 
+.category-body {
+	background-size: cover;
+	border-radius: .6rem;
+	overflow: hidden;
+	width: 200px; 
+	height: 200px;
+}
+
+.categorie-container {
+	backdrop-filter: blur(5px); background-color: #026387a2;
+	overflow: hidden;
+	width: 100%;
+	height: 30%;
+}
+
+.category-body:hover .categorie-container, .categorie-container:hover {
+	height: 100%;
+}
+
+.category-text {
+	height: 100%;
+	width: 100%;
+	padding: 10px 0; 
+	font-size: large;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	/* display: grid; */
+	/* flex-direction: column; */
+}
+
+.category-description {
+	font-size: 1rem;
+	font-weight: 400;
+	/* align-self: center;
+	justify-self: center; */
+	text-transform: none;
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+	/* vertical-align: middle; */
+}
+
 .title-bold-2xl h2{
 	font-weight: bold;
 }

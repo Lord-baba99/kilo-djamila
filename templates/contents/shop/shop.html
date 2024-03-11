@@ -1,9 +1,7 @@
 {% load static %}
 {% load i18n %}
 {% load humanize %}
-<link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <!-- Breadcroumbs start -->
 <!-- <div class="wshipping-content-block wshipping-breadcroumb inner-bg-1">
@@ -25,63 +23,66 @@
     <!-- <img src="{% static 'assets/images/kilo/slide_bg.jpg' %}" alt=""> -->
     <p class="slide-text">Nous vous porposons nos articles pour lesquel nous pouvons vous accompagner un achat en moins
       de 48h</p>
-    </div>
-  </section>
-  
-  {% comment %}
-  {{categories}}
-  <div>
-    <div class="swiper-container mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    
-    
   </div>
-  {% endcomment %}
+</section>
 
-<div class="container mx-auto mySwiper" 
-  style="margin: 50px 0; background-color: #c8c7c739;
-    border-radius: .6rem; padding: 30px 2%; overflow: hidden;">
-  <h1 style="margin: 0 auto 40px; color: #026387; width: fit-content; text-align: center; background-color: white; padding: 10px 20px; border-radius: .6rem;">Voici les catégories d'article disponibles</h1>
-  <!-- <div style="display: flex; flex-wrap: wrap; gap: 20px;"> -->
+{% comment %}
+{{categories}}
+<div>
+  <div class="swiper-container mySwiper">
     <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+</div>
+{% endcomment %}
+
+<div class="container mx-auto mySwiper" style="margin: 50px 0; background-color: #c8c7c739;
+    border-radius: .6rem; padding: 30px 2%; overflow: hidden;">
+  <h1
+    style="margin: 0 auto 40px; color: #026387; width: fit-content; text-align: center; background-color: white; padding: 10px 20px; border-radius: .6rem;">
+    Voici les catégories d'article disponibles</h1>
+  <!-- <div style="display: flex; flex-wrap: wrap; gap: 20px;"> -->
+  <div class="swiper-wrapper">
     {% for categorie in categories %}
     <a href="{% url 'articles' categorie.id %}" class="swiper-slide">
-      <div style="width: 200px; height: 200px;
-      background-image: url('{{BASE_URL}}/{{categorie.image_uri}}');
-      background-size: cover;
-      border-radius: .6rem;
-      overflow: hidden;">
-      <p style="height: fit-content; width: 100%;
-        padding: 10px 0; 
-        backdrop-filter: blur(5px); background-color: #026387a2;
-        font-size: large;
-        color: white;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-align: center;">
-        {{categorie.name}}
-      </p>
-    </div>
+      <div class="category-body" style="background-image: url('{{BASE_URL}}/{{categorie.image_uri}}');">
+        <div class="categorie-container">
+        <div class="category-text">
+          <span class="d-block" style="height: fit-content;">{{categorie.name}}</span>
+          <p class="category-description">
+              {{categorie.description|truncatechars:60}}
+          </p>
+        </div>
+      </div>
+      </div>
     </a>
     {% endfor %}
   </div>
   <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
 
 <!-- Boutique content start -->
 <div class="wshipping-content-block" style="padding-top: 0;">
+  <div style="width: 100%; height: 300px; background-color: #026387; display: flex; align-items: center; padding: 0 50px;">
+    <h1
+    style="margin: 100px auto 20px; color: #026387; width: fit-content; text-align: center; background-color: white; padding: 10px 20px; border-radius: .6rem;">
+    Voici nos dernière catégories</h1>
+    <img style="height: 200px; width:auto; border-radius: .6rem;" src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt="">
+  </div>
   <div class="container">
     <div class="row flex-lg-row-reverse">
       <div class="col-12">
@@ -106,41 +107,44 @@
               </div>
             </div>
             {% empty %}
-            <div class="article" style="display: flex; align-items: center; justify-content: center; height: fit-content; padding: 50px 0;">
+            <div class="article"
+              style="display: flex; align-items: center; justify-content: center; height: fit-content; padding: 50px 0;">
               <p>
-                <h1 style="font-size: large; text-align: center;">Cette catégorie ne contien aucun article</h1>
+              <h1 style="font-size: large; text-align: center;">Cette catégorie ne contien aucun article</h1>
               </p>
             </div>
             {% endfor %}
             {% if categorie.articles %}
-            <div class="article" style="display: flex; align-items: center; justify-content: center; height: fit-content; padding: 50px 0;">
+            <div class="article"
+              style="display: flex; align-items: center; justify-content: center; height: fit-content; padding: 50px 0;">
               <p>
-                <a href="{% url 'articles' categorie.id %}" style="font-size: large; font-weight: bold;">Voir plus...</a>
+                <a href="{% url 'articles' categorie.id %}" style="font-size: large; font-weight: bold;">Voir
+                  plus...</a>
               </p>
             </div>
             {% endif %}
           </div>
         </div>
         {% empty %}
-            <div class="relative">
-              <div>
-                {% if messages %}
-                {% for message in messages %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <div class="">
-                    <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <strong class="d-inline">{{message}}</strong>
-                  </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
+        <div class="relative">
+          <div>
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <div class="">
+                <button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <strong class="d-inline">{{message}}</strong>
               </div>
             </div>
+            {% endif %}
             {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
 
         <!-- pagination start -->
         <!-- <div class="page-navigation">
@@ -173,6 +177,10 @@
       el: ".swiper-pagination",
       clickable: true,
     },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
     breakpoints: {
       640: {
         slidesPerView: 2,
@@ -190,31 +198,30 @@
   });
 </script>
 {% comment %}
-        <!-- blog iteam start -->
-        <div class="blog-block">
-          <div class="blog-image-bg blog-image-3"></div>
-          <div class="blog-content">
-            <div class="blog-date">Mar <span>26</span> 2017</div>
-            <h3><a href="#" title="">Shipping container all international transport</a></h3>
-            <div class="blog-post-by">
-              <ul>
-                <li><a href="" title=""><i class="fa fa-user"></i> Posted By Razu Ahmed</a></li>
-                <li><a href="" title=""><i class="fa fa-heart"></i> 10 favorites</a></li>
-                <li><a href="" title=""><i class="far fa-comments"></i> 12 comments</a></li>
-              </ul>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aeneanssa. Cum
-              sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-              ultricies nec, pellentesque eu, pretium quis, sem. Etiam rhoncus maecenas tempus tellus eget.</p>
-          </div>
-          <div class="continue-read-blog"><a href="" title="">Add to cart <i class="fa fa-cart-plus"></i></a></div>
-          <div class="blog-action">
-            <div class="blog-action-holder"><a href="" title=""><i class="far fa-thumbs-up"></i></a><a href=""
-                title=""><i class="far fa-thumbs-down"></i></a></div>
-            <div class="blog-action-holder"><a href="" title=""><i class="fa fa-heart"></i></a><a href="" title=""><i
-                  class="fa fa-share-alt"></i></a><a href="" title=""><i class="far fa-comments"></i></a></div>
-          </div>
-        </div>
-        <!-- blog iteam end -->
-        {% endcomment %}
-
+<!-- blog iteam start -->
+<div class="blog-block">
+  <div class="blog-image-bg blog-image-3"></div>
+  <div class="blog-content">
+    <div class="blog-date">Mar <span>26</span> 2017</div>
+    <h3><a href="#" title="">Shipping container all international transport</a></h3>
+    <div class="blog-post-by">
+      <ul>
+        <li><a href="" title=""><i class="fa fa-user"></i> Posted By Razu Ahmed</a></li>
+        <li><a href="" title=""><i class="fa fa-heart"></i> 10 favorites</a></li>
+        <li><a href="" title=""><i class="far fa-comments"></i> 12 comments</a></li>
+      </ul>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor aeneanssa. Cum
+      sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+      ultricies nec, pellentesque eu, pretium quis, sem. Etiam rhoncus maecenas tempus tellus eget.</p>
+  </div>
+  <div class="continue-read-blog"><a href="" title="">Add to cart <i class="fa fa-cart-plus"></i></a></div>
+  <div class="blog-action">
+    <div class="blog-action-holder"><a href="" title=""><i class="far fa-thumbs-up"></i></a><a href="" title=""><i
+          class="far fa-thumbs-down"></i></a></div>
+    <div class="blog-action-holder"><a href="" title=""><i class="fa fa-heart"></i></a><a href="" title=""><i
+          class="fa fa-share-alt"></i></a><a href="" title=""><i class="far fa-comments"></i></a></div>
+  </div>
+</div>
+<!-- blog iteam end -->
+{% endcomment %}

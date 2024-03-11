@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-12 col-lg-7">
           <h1>Boutique</h1>
-          <a href="{% url 'main-home' %}" title="Accueil">Accueil</a> / Boutique </div>
+          <a href="{% url 'main-home' %}" title="Accueil">Accueil</a> / <a href="{% url 'shop' %}" title="Accueil">Boutique</a> / {{categorie.name}}</div>
         <div class="col-12 col-lg-5 text-right">
           <h4>Nous expédions partout au Congo depuis la Chine
             La meilleure entreprise de logistique, <span>RAPIDE</span> et <span>EN TOUTE SÉCURITÉ !</span></h4>
@@ -19,19 +19,20 @@
   
 
   <!-- Boutique content start -->
+  <a href="{% url 'shop' %}" style="display: block; width: fit-content; margin: 50px; padding: 10px 15PX; color: white; background-color: #026387; border-radius: .3rem; font-weight: 600; font-size: large;"> Retour vers la boutique</a>
   <div class="wshipping-content-block">
-    <div class="container">
+    <div class="">
+
       <div class="row flex-lg-row-reverse">
         <div class="col-12">       
           <!-- blog iteam start -->
-          
           <div class="card">
             <div class="card-header categorie-header">
-              <div class="categorie-title">
+              <div class="">
                 <h1>{{categorie.name}}</h1>
                 <h5>{{categorie.description}}</h5>
               </div>
-              <img class="categorie-image" src="{{BASE_URL}}/{{categorie.image_uri}}" alt="">
+              <!-- <img class="categorie-image" src="{{BASE_URL}}/{{categorie.image_uri}}" alt=""> -->
             </div>
             <div class="card-body categorie-body">
               {% for article in categorie.articles %}

@@ -1,5 +1,12 @@
 {% load static %}
 {% load i18n %}
+<style>
+  @media screen and (max-width:1040px) {
+    .mainmenu ul {
+      text-align: center;
+    }
+  }
+</style>
 <header class="for-sticky"> 
     <!-- Header top area start -->
     <!-- <div class="header-top-area">
@@ -48,10 +55,10 @@
     
     <!-- Header area start -->
     <div class="header-area">
-      <div class="container"> 
+      <div class="" style="margin: 0 5%;"> 
         <!-- Site logo Start -->
         <div class="logo"> 
-          <a href="{% url 'main-home' %}" title="Kingstine Export" style="display: flex; align-items: center;">
+          <a href="{% url 'main-home' %}" title="Kingstine Export" style="display: flex; align-items: center; justify-content: center; flex-direction: column; margin: 10px 0;">
             <img src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt="W-shipping"/> 
             <span class="font-weight-bold" style="font-size: larger; color:black">Kingstine Export</span>
           </a> 
@@ -103,6 +110,8 @@
               <!-- <ul>
                 <li><a href="{% url 'shop' %}">Product</a></li>
               </ul> -->
+            </li>
+            <li class=""><a href="{% url 'about-us' %}">A propos de nous</a> <!--nav-active-->
             </li>
             <li><a href="{% url 'contact' %}">Nous contacter</a></li>
             <li><a href="https://www.kilo.bb-business.ovh">Se connecter</a></li>

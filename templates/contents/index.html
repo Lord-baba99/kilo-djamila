@@ -44,6 +44,7 @@
   </div>
   <!-- Slider End --> 
   <!-- Service start -->
+  {% comment %}
   <div class="wshipping-content-block">
     <div class="container">
       <div class="row">
@@ -106,6 +107,7 @@
       </div>
     </div>
   </div>
+  {% endcomment %}
   <!-- Service End --> 
    <!-- Service start -->
    <div class="wshipping-content-block">
@@ -175,7 +177,9 @@
             <div class="service-item-bg" style="background-image: url('http://kilo.bb-business.ovh/{{article.image_uri}}');"></div>
             <div class="service-content">
               <h4>{{article.name}}</h4>
+              {% comment %}
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+              {% endcomment %}
               <a href="{% url 'shop' %}" title="" class="readmore-btn">En savoir plus<i class="fa fa-angle-right"></i></a>
               <div class="location_map"><i class="fa fa-plus"></i></div>
             </div>

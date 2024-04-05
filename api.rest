@@ -11,4 +11,25 @@ Content-Type: application/json
     "password": 123456789
 }
 
+###
+
+POST http://127.0.0.1:8080/api_v1/modules/
+Content-Type: application/json
+
+{
+            "slug": "lorem-ipsum",
+            "module_id": 16,
+            "title": "Lorem ipsum",
+            "description": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?</p>",
+            "lesson": "http://127.0.0.1:8080/api_v1/lessons/10000/",
+            "video": null,
+            "image": null,
+            "document": null,
+            "content": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, dolor, accusantium obcaecati consequatur tempora consequuntur illo iste enim animi eius veniam. Odio quos hic aliquam excepturi cupiditate sed, eos sunt sapiente ullam facilis dolor voluptatem expedita ab tempora deserunt dicta? Eius veritatis ut nemo magni blanditiis iure omnis mollitia harum?&nbsp;</p>",
+            "point": 0,
+            "created_date": "2024-03-18T19:29:28.874276Z",
+            "updated_date": "2024-03-18T19:29:28.874276Z",
+            "checked": false
+}
+
 

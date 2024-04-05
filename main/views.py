@@ -174,3 +174,11 @@ def contact(request):
     }
     
     return render(request, BASE_TEMPLATE, context)
+
+def about_us(request):
+    
+    
+    context = {
+       "template_name": "contents/about.html",
+    }
+    return render(request, BASE_TEMPLATE, context)

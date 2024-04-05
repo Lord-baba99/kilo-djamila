@@ -6,6 +6,7 @@ urlpatterns = [
     path('services/', service, name='services'),
     path('contact/', contact, name='contact'),
     path('shop/', shop, name='shop'),
+    path('about-us/', about_us, name='about-us'),
     path('articles/<int:category_id>/', get_article, name='articles'),
     path('ocean-freight-services/', ocean_freight_service, name='ocean-freight-services'),
     path('air-freight-services/', air_freight_service, name='air-freight-services'),

@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '5.250.182.29', '91.134.88.251', '91.134.88.251:8080', 'kingstinexport.com', 'www.kingstinexport.com']
 
+# Définir le domaine du cookie CSRF
+CSRF_COOKIE_DOMAIN = '.kingstinexport.com'
+
+# Définir les origines de confiance pour la vérification CSRF
+CSRF_TRUSTED_ORIGINS = [
+    'https://kingstinexport.com',
+    'https://www.kingstinexport.com',
+]
 
 # Application definition
 

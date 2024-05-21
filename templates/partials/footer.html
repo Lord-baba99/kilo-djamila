@@ -9,24 +9,32 @@
         <div class="row">
           <div class="col-12 col-md-6 col-lg-3">
             <div class="footer-wiz">
-              <h3 class="footer-logo"><img src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt="footer logo" style="border-radius: .6rem;"/></h3>
+              <h3 class="footer-logo"><img src="{% static 'assets/images/kilo/logo/djamila_logo.jpg' %}" alt="footer logo" style="border-radius: .6rem;"/></h3>
               <p></p>
               <ul class="footer-contact">
-                <li><i class="fa fa-phone"></i> +88 01911 837404</li>
+                <li><i class="fa fa-phone"></i> +33643030841
+                </li>
+                {% comment %}
                 <li><i class="fa fa-envelope"></i> info@companyname.com</li>
-                <li><i class="fa fa-fax"></i> +88 02 123456</li>
+                {% endcomment %}
+                <li><i class="fa fa-fax"></i> +2250779797741
+                </li>
               </ul>
             </div>
+            {% comment %}
             <div class="top-social bottom-social"> <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-youtube"></i></a> <a href="#"><i class="fa fa-rss"></i></a> </div>
+            {% endcomment %}
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <div class="footer-wiz footer-menu">
               <h3 class="footer-wiz-title">Liens rapides</h3>
               <ul>
                   <li class=""><a href="{% url 'main-home' %}">Accueil</a>
+                    {% comment %}
                   <li>
                     <a href="{% url 'services' %}">Nos services</a>
                   </li>
+                  {% endcomment %}
                   <li>
                     <a href="{% url 'ocean-freight-services' %}">Fret maritime</a>
                   </li>  
@@ -40,10 +48,12 @@
             <div class="footer-wiz footer-menu">
               <h3 class="footer-wiz-title">Liens utiles</h3>
               <ul>
+                {% comment %}
                 <li><a href="{% url 'tracking' %}">Tracking</a>
                 </li>
                 <li><a href="{% url 'shop' %}">Boutique</a>
                 </li>
+                {% endcomment %}
                 <li><a href="{% url 'contact' %}">Nous contacter</a></li>
               </ul>
             </div>
@@ -72,7 +82,7 @@
     <div class="footer-bottom-area">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-6 wow fadeInLeft">Copyright © 2024 <span>Kingstine Export</span> Tous droits réservés</div>
+          <div class="col-12 col-lg-6 wow fadeInLeft">Copyright © 2024 <span>Djamila</span> Tous droits réservés</div>
           <!-- <div class="col-12 col-lg-6 text-right wow fadeInRight">Design & Development By: <a href="#" title="Ban2 Digital" target="_blank">Ban2 Digital</a></div> -->
         </div>
       </div>

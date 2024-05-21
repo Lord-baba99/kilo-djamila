@@ -33,15 +33,15 @@ def home(request):
             'Content-Type': 'application/json'
         }
         
-        response = requests.get(url, headers=headers)   
+        #response = requests.get(url, headers=headers)   
         
-        articles = response.json()
+        #articles = response.json()
     except Exception as e:
         messages.error(request, "Impossible d'atteindre le serveur distant")
         articles = {}
 
     context = {
-        'articles': articles,
+        #'articles': articles,
         'template_name': 'contents/index.html'
     }
     return render(request, BASE_TEMPLATE, context)

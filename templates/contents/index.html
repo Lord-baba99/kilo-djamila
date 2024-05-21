@@ -14,7 +14,7 @@
                 <div class="col-lg-10 offset-lg-1">
                   <h3>Nous sommes fiers</h3>
                   <h2>D'être toujours présents à la demande</h2>
-                  <p>Depuis notre création, nous nous engageons à offrir des services de transfert de colis rapides, fiables et accessibles. Notre équipe dévouée travaille sans relâche pour garantir que vos colis arrivent à destination en toute sécurité et dans les délais promis. Chez Kingstine Exporte, votre satisfaction est notre priorité, et nous sommes toujours là pour répondre à vos besoins d'expédition, à tout moment et partout.</p>
+                  <p>Depuis notre création, nous nous engageons à offrir des services de transfert de colis rapides, fiables et accessibles. Notre équipe dévouée travaille sans relâche pour garantir que vos colis arrivent à destination en toute sécurité et dans les délais promis. Chez Djamila, votre satisfaction est notre priorité, et nous sommes toujours là pour répondre à vos besoins d'expédition, à tout moment et partout.</p>
                   <a href="{% url 'contact' %}" class="wshipping-button slide-btn">Contactez nous</a> </div>
               </div>
             </div>
@@ -65,13 +65,13 @@
             <div class="col-12">
               <div class="service-content" style="height: 100%; background-color: #1f5c74;">
                 <p style="font-size: x-large; font-weight: 100; vertical-align: middle; line-height: 30px; color: white; margin-top: 50px;">
-                  <span style="font-size: 2.5rem;">C</span>hez <span style="font-weight: bold;">Kingstine Export</span>, nous révolutionnons le transfert de colis de la
+                  <span style="font-size: 2.5rem;">C</span>hez <span style="font-weight: bold;">Djamila</span>, nous révolutionnons le transfert de colis de la
                   <span style="font-weight: 400; font-style: italic;">Chine</span> vers le <span style="font-weight: 400; font-style: italic;">Congo</span>.
                   Notre mission est de rapprocher les marchés, en rendant l'accessibilité aux produits internationaux aussi simple
                   qu'un clic.
                   Avec une logistique fiable et une équipe dédiée, nous assurons que chaque colis arrive à destination en toute
                   sécurité et dans les meilleurs délais.
-                  Faites confiance à <span style="font-weight: bold;">Kingstine Export</span>, votre partenaire privilégié pour
+                  Faites confiance à <span style="font-weight: bold;">Djamila</span>, votre partenaire privilégié pour
                   des échanges sans frontières.
                 </p>
                 <p style="width: fit-content; margin: 20px auto; font-size: x-large; font-weight: bold; color: white;">Pays desservis</p>
@@ -126,7 +126,7 @@
             <div class="service-item-bg service-bg-1"></div>
             <div class="service-content">
               <h4>Expédition de fret maritime</h4>
-              <p>Notre service d'expédition de fret maritime est conçu pour répondre à tous vos besoins logistiques internationaux. Avec une flotte moderne et une équipe d'experts en logistique, nous assurons le transport de vos marchandises en toute sécurité à travers les océans. Chez Kingstine Export, nous comprenons l'importance de la fiabilité et de l'efficacité dans le transport maritime et nous nous engageons à fournir un service de qualité supérieure à chaque étape de votre chaîne d'approvisionnement.</p>
+              <p>Notre service d'expédition de fret maritime est conçu pour répondre à tous vos besoins logistiques internationaux. Avec une flotte moderne et une équipe d'experts en logistique, nous assurons le transport de vos marchandises en toute sécurité à travers les océans. Chez Djamila, nous comprenons l'importance de la fiabilité et de l'efficacité dans le transport maritime et nous nous engageons à fournir un service de qualité supérieure à chaque étape de votre chaîne d'approvisionnement.</p>
               <a href="{% url 'ocean-freight-services' %}" title="" class="readmore-btn">En savoir plus<i class="fa fa-angle-right"></i></a>
               <div class="location_map"><a href="{% url 'ocean-freight-services' %}"><i class="fa fa-plus"></i></a></div>
             </div>
@@ -137,7 +137,7 @@
             <div class="service-item-bg service-bg-2"></div>
             <div class="service-content">
               <h4>Expédition de fret aérien</h4>
-              <p>Optez pour la rapidité et l'efficacité avec notre service d'expédition de fret aérien. Chez Kingstine Export, nous comprenons que le temps est précieux. C'est pourquoi nous offrons des solutions de transport aérien adaptées à vos délais serrés. Notre réseau global et nos partenariats avec les principales compagnies aériennes garantissent que vos envois arrivent à leur destination rapidement et en parfait état. <br> <span class="text-white">Kingstine Export</span></p>
+              <p>Optez pour la rapidité et l'efficacité avec notre service d'expédition de fret aérien. Chez Djamila, nous comprenons que le temps est précieux. C'est pourquoi nous offrons des solutions de transport aérien adaptées à vos délais serrés. Notre réseau global et nos partenariats avec les principales compagnies aériennes garantissent que vos envois arrivent à leur destination rapidement et en parfait état. <br> <span class="text-white">Djamila</span></p>
               <a href="{% url 'air-freight-services' %}" title="" class="readmore-btn">En savoir plus<i class="fa fa-angle-right"></i></a>
               <div class="location_map"><a href="{% url 'air-freight-services' %}"><i class="fa fa-plus"></i></a></div>
             </div>
@@ -159,6 +159,7 @@
   </div>
   <!-- Service End --> 
   <!-- article start -->
+  {% comment %}
   <div class="wshipping-content-block">
     <div class="container">
       <div class="row">
@@ -177,9 +178,6 @@
             <div class="service-item-bg" style="background-image: url('http://kilo.bb-business.ovh/{{article.image_uri}}');"></div>
             <div class="service-content">
               <h4>{{article.name}}</h4>
-              {% comment %}
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
-              {% endcomment %}
               <a href="{% url 'shop' %}" title="" class="readmore-btn">En savoir plus<i class="fa fa-angle-right"></i></a>
               <div class="location_map"><i class="fa fa-plus"></i></div>
             </div>
@@ -209,7 +207,8 @@
       </div>
     </div>
   </div>
-  <!-- Service End --> 
+  {% endcomment %}
+  <!-- Article End --> 
   
   <!-- we peovide start -->
   <div class="wshipping-content-block provided-block text-center">
@@ -233,7 +232,7 @@
   <div class="wshipping-content-block">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-4 wow fadeInLeft"> <img src="{% static 'assets/images/kilo/logo/WhatsApp Image 2024-02-06 at 08.45.20.jpeg' %}" alt=""/> </div>
+        <div class="col-12 col-lg-4 wow fadeInLeft"> <img src="{% static 'assets/images/kilo/logo/djamila_logo.jpg' %}" alt=""/> </div>
         <div class="col-12 col-lg-4">
           <div class="why-choose-us-content wow fadeInUp">
             <h3 class="heading3-border text-uppercase">Pourquoi nous choisir ?</h3>
@@ -261,7 +260,7 @@
         <div class="col-12 col-lg-6 offset-lg-3">
           <div class="section-title">
             <h2 style="color: white">Notre processus de service</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            
           </div>
         </div>
       </div>
